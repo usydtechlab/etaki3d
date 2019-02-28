@@ -12,10 +12,7 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 - Cross Browser and Device support.
 
 ## How to install it
-1. Get
-1. Good
-1. Son
-1. :smiley:
+1. Soon TM
 
 etaki3d is under the [MIT License ](LICENSE)
 <p align="center">
