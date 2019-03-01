@@ -14,6 +14,9 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 ## How to install it
 1. Soon TM
 
+An Enterprise tier port of the Immersion project.
+
+
 etaki3d is under the [MIT License ](LICENSE)
 <p align="center">
 	Made with :blue_heart: at the TechLab.
