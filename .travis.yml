@@ -14,9 +14,9 @@ php:
   # aliased to a recent 5.6.x version
   - 5.6
   # aliased to a recent 7.x version
-  - 7.0
+  #- 7.0
   # aliased to a recent hhvm version
-  - hhvm  # on Trusty only
+  #- hhvm  # on Trusty only
 
 # optionally specify a list of environments, for example to test different RDBMS
 env:
@@ -24,13 +24,13 @@ env:
   #- DB=pgsql
 
 # optionally set up exclusions and allowed failures in the matrix
-matrix:
-  exclude:
-    - php: hhvm
-      env: DB=mysql
-  allow_failures:
-    - php: 7.0
-    - php: hhvm
+#matrix:
+  #exclude:
+    #- php: hhvm
+      #env: DB=mysql
+  #allow_failures:
+    #- php: 7.0
+    #- php: hhvm
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
@@ -40,4 +40,4 @@ before_script:
 
 # omitting "script:" will default to phpunit
 # use the $DB env variable to determine the phpunit.xml to use
-script: phpunit --configuration phpunit_$DB.xml --coverage-text
+script: phpunit --configuration phpunit.xml --coverage-text
