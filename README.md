@@ -1,4 +1,7 @@
 # etaki3d
+
+[![Build Status](https://travis-ci.com/usydtechlab/etaki3d.svg?branch=master)](https://travis-ci.com/usydtechlab/etaki3d)
+
 A for-profit DAMNS for all multimedia and multi-dimensional content.
 
 ## About
