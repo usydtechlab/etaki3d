@@ -2,15 +2,15 @@
 
 return [
 
-  '#theme-name' => 'Starter Theme',
-  '#theme-key' => 'starter-theme',
+  '#theme-name' => 'Interactive 3D Template',
+  '#theme-key' => 'interactive-template',
   '#theme-version' => '1.0',
   '#ideaspace-version' => '>=1.0.0',
-  '#theme-description' => 'Getting Started with VR Theme development.',
-  '#theme-author-name' => 'IdeaSpaceVR',
-  '#theme-author-email' => 'info@ideaspacevr.org',
-  '#theme-homepage' => 'https://www.ideaspacevr.org/themes',
-  '#theme-keywords' => 'starter theme, simple',
+  '#theme-description' => 'Drop in your 3D models and interact with them!',
+  '#theme-author-name' => 'TechLab',
+  '#theme-author-email' => 'techlab@sydney.edu.au',
+  '#theme-homepage' => 'https://trends.techlab.works',
+  '#theme-keywords' => '3d, interact',
   '#theme-compatibility' => 'Google Cardboard, Daydream, Oculus, Samsung Gear VR, no headset',
   '#theme-view' => 'scene',
 

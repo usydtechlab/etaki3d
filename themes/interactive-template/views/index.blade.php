@@ -25,8 +25,7 @@
     <meta property="og:url" content="{{ \Request::url() }}" />
 
     <link rel="stylesheet" href="{{ url($theme_dir . '/css/style.css') }}">
-    <script src="{{ url($theme_dir . '/js/aframe-v0.6.1.min.js') }}"></script>
-    <script src="{{ url($theme_dir . '/js/aframe-layout-component.min.js') }}"></script>
+    <script src="{{ url($theme_dir . '/js/aframe-v0.9.0.js') }}"></script>
 </head>
 <body>
 
