@@ -44,6 +44,28 @@ Let's create our first scene that will display some moving, 3d text.
 - We have provided you with a few to start off with, and we will continue to create themes so make sure to keep this github repo up to date!
 -  
 
+
+### Docker
+
+```bash
+docker-compose -f docker-compose.yml up
+```
+
+#### List containers
+
+```bash
+docker container ls
+```
+
+#### Stop and prune containers
+
+```bash
+docker stop [CONTAINER ID]
+docker container prune
+```
+
+
+
 An Enterprise tier port of the Immersion project.
 
 Eta-ki is under the [MIT License ](LICENSE)
