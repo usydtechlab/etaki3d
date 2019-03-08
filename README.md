@@ -15,7 +15,17 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 - Cross Browser and Device support.
 - VR headset support, including Oculus Rift & Go, Google Cardboard & Daydream, 
 
-## How to install (Localhost on your computer)
+## Requirements
+PHP >= 5.5.9
+OpenSSL PHP Extension
+PDO PHP Extension
+Fileinfo PHP Extension
+Mbstring PHP Extension
+Tokenizer PHP Extension
+GD Library or ImageMagick PHP Extension
+MySQL or MariaDB or PostgreSQL database
+
+## How to install (Localhost on your computer) (windows Xampp)
 1. Download and Install [XAMPP](https://www.apachefriends.org/download.html).
 2. Clone this github repo into your xampp/htdocs directory.
 3. Open XAMPP's control panel and start Apache and MySQL.
@@ -26,6 +36,32 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 8. Add yourself as a user, with your own email address, name and password.
 #### Congratulations, you have successfully installed Eta-Ki!
 
+## If you get an error 404
+
+If you encounter a 404 Not Found error, please make sure you enabled the Apache2 mod_rewrite module:
+
+`sudo a2enmod rewrite`
+
+And then restart Apache2:
+
+`sudo service apache2 restart`
+
+Configure mod_rewrite by editing one of the following files:
+
+`sudo nano /etc/apache2/sites-enabled/000-default.conf`
+
+or
+
+`sudo nano /var/www/html/.htaccess`
+
+and add the following lines:
+`
+<Directory /var/www/html>
+AllowOverride All
+Order allow,deny
+allow from all
+</Directory>
+`
 ## Recommended configuration
 - Go to XAMPP Control Panel and click on config for Apache -> php.ini.
 	- Find the memory limit and change it to 512M.
