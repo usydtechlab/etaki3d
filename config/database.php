@@ -55,9 +55,9 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'etaki3d',
-            'username'  => 'root',
-            'password'  => 'muhit4321',
+            'database'  => 'ideaspacevr',
+            'username'  => 'techlab',
+            'password'  => 'Tech1234',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => 'isvr_',
