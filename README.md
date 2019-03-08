@@ -34,6 +34,20 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 6. Now go into your preferred web browser and type in [localhost/etaki3d](localhost/etaki3d), and an admin panel should open up.
 7. Enter in the name of your created database name along with your username and password.
 8. Add yourself as a user, with your own email address, name and password.
+
+
+## Setup without XAMPP using PHP Server [MAC/Linux]
+1. Once this github repo is cloned, go to config/database.php
+2. Change this line 'default' => 'pgsql', [Available options pgsql, sqlite, sqlsrv, mysql]
+3. Create a database 
+4. Fire up the terminal in the root directory and run the following
+
+    php -S localhost:port [e.g. php -S localhost:9000]
+5. Go to localhost:9000/install-db if running for the first time
+6. Use the database and auth details used in the previous steps
+7. Everything should be installed within a minute
+
+
 #### Congratulations, you have successfully installed Eta-Ki!
 
 ## If you get an error 404

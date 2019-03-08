@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,9 +55,9 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'ideaspacevr',
-            'username'  => 'techlab',
-            'password'  => 'Tech1234',
+            'database'  => 'etaki3d',
+            'username'  => 'root',
+            'password'  => 'muhit4321',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => 'isvr_',
@@ -66,12 +66,12 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => '',
-            'database' => '',
-            'username' => '',
-            'password' => '',
+            'host'     => 'localhost',
+            'database' => 'etaki3d',
+            'username' => 'admin',
+            'password' => 'muhit4321',
             'charset'  => 'utf8',
-            'prefix'   => '',
+            'prefix'   => 'isvr_',
             'schema'   => 'public',
         ],
 
