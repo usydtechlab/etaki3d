@@ -16,14 +16,14 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 - VR headset support, including Oculus Rift & Go, Google Cardboard & Daydream, 
 
 ## Requirements
-PHP >= 5.5.9
-OpenSSL PHP Extension
-PDO PHP Extension
-Fileinfo PHP Extension
-Mbstring PHP Extension
-Tokenizer PHP Extension
-GD Library or ImageMagick PHP Extension
-MySQL or MariaDB or PostgreSQL database
+- PHP >= 5.5.9
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Fileinfo PHP Extension
+- Mbstring PHP Extension
+- Tokenizer PHP Extension
+- GD Library or ImageMagick PHP Extension
+- MySQL or MariaDB or PostgreSQL database
 
 ## How to install (Localhost on your computer) (windows Xampp)
 1. Download and Install [XAMPP](https://www.apachefriends.org/download.html).
@@ -55,13 +55,13 @@ or
 `sudo nano /var/www/html/.htaccess`
 
 and add the following lines:
-`
+```
 <Directory /var/www/html>
 AllowOverride All
 Order allow,deny
 allow from all
 </Directory>
-`
+```
 ## Recommended configuration
 - Go to XAMPP Control Panel and click on config for Apache -> php.ini.
 	- Find the memory limit and change it to 512M.
