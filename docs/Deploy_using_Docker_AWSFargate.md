@@ -44,3 +44,8 @@ docker tag etaki3d:latest 4xxxxxxxxxxx.dkr.ecr.ap-southeast-2.amazonaws.com/etak
 ```bash
 docker push 4xxxxxxxxxxx.dkr.ecr.ap-southeast-2.amazonaws.com/etaki3d:latest
 ```
+
+## PoC of AWS Fargate
+
+- [Getting Started with Amazon ECS using Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html)
+- [Task Networking with the awsvpc Network Mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
