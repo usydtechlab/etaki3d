@@ -20,7 +20,7 @@ For further information, please check [Managing Access Keys for Your AWS Account
 aws configure
 ```
 
-## Start to deploy the built Docker app
+## Deploy the built Docker image to AWS ECR
 
 1. Retrieve the login command to use to authenticate your Docker client to your registry.
 Use the AWS CLI:
@@ -45,7 +45,65 @@ docker tag etaki3d:latest 4xxxxxxxxxxx.dkr.ecr.ap-southeast-2.amazonaws.com/etak
 docker push 4xxxxxxxxxxx.dkr.ecr.ap-southeast-2.amazonaws.com/etaki3d:latest
 ```
 
+
+## Config the Amazon ECS CLI (Fargate)
+
+
+1. Create a cluster configuration, which defines the AWS region to use, resource creation prefixes, and the cluster name to use with the Amazon ECS CLI:
+
+```
+ecs-cli configure --cluster tutorial --region ap-southeast-2 --default-launch-type FARGATE --config-name tutorial
+
+INFO[0000] Saved ECS CLI cluster configuration tutorial.
+```
+
+2. Create a CLI profile using your access key and secret key:
+
+```
+ecs-cli configure profile --profile-name profile_ecs --access-key AKxxxxxxxxxxxx --secret-key xHhxxxxxxxxxxxx
+
+INFO[0000] Saved ECS CLI profile configuration profile_ecs.
+```
+
+
+```
+ecs-cli up
+
+INFO[0001] Created cluster                               cluster=tutorial region=ap-southeast-2
+INFO[0001] Waiting for your cluster resources to be created... 
+INFO[0001] Cloudformation stack status                   stackStatus=CREATE_IN_PROGRESS
+INFO[0061] Cloudformation stack status                   stackStatus=CREATE_IN_PROGRESS
+VPC created: vpc-0540d0dbf65e87f70
+Subnet created: subnet-025234189a41cf691
+Subnet created: subnet-044299ce175c2f672
+Cluster creation succeeded.
+```
+
+
+```
+aws ec2 create-security-group --group-name "ecs-sg" --description "ECS security group" --vpc-id vpc-0540d0dbf65e87f70
+
+{
+    "GroupId": "sg-0039b8606c2bf6515"
+}
+```
+
+
+Using AWS CLI, add a security group rule to allow inbound access on port 80:
+
+```
+aws ec2 authorize-security-group-ingress --group-id sg-0039b8606c2bf6515 --protocol tcp --port 80 --cidr 0.0.0.0/0
+```
+
+### Deploy the Compose File to a Cluster
+```
+ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial
+```
+
+
+
 ## PoC of AWS Fargate
 
 - [Getting Started with Amazon ECS using Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html)
 - [Task Networking with the awsvpc Network Mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+- [Tutorial: Creating a Cluster with a Fargate Task Using the Amazon ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html)
