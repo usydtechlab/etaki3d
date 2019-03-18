@@ -101,8 +101,24 @@ ecs-cli compose --project-name tutorial service up --create-log-groups --cluster
 ```
 
 
+### Clean Up
 
-## PoC of AWS Fargate
+First, delete the service so that it stops the existing containers and does not try to run any more tasks.
+
+```
+ecs-cli compose --project-name tutorial service down --cluster-config tutorial
+
+```
+
+Now, take down the cluster, which cleans up the resources that you created earlier with ecs-cli up.
+
+```
+ecs-cli down --force --cluster-config tutorial
+```
+
+
+
+## Reference
 
 - [Getting Started with Amazon ECS using Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html)
 - [Task Networking with the awsvpc Network Mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
