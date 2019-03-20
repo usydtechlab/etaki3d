@@ -1,4 +1,0 @@
-<a-assets>
-
-</a-assets>
-
