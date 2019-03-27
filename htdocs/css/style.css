@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+13px|Slabo+27px');
+
+:root {
+	--etaki-colour: #e50914;
+}
+
+body {
+	background: #221f1f;
+	color: white;
+	font-family: "Slabo", sans-serif;
+	scroll-behavior: smooth;
+}
+
+/* Top main nav */
+
+#main-nav {
+	background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+}
+
+#main-nav-items ul li a {
+	color: white;
+	border-radius: 3px;
+	transition: background 0.125s ease;
+}
+
+#main-nav-items ul li a:hover {
+	background: #e50914;
+	cursor: pointer;
+	transition: background 0.125s ease;
+}
+
+.nav-right li,
+.nav-left li {
+	margin-left: 2rem;
+}
+
+#title {
+	position: relative;
+	font-size: 2rem;
+	color: #ffffff;
+	transition: fill 0.125s ease;
+	top: 0px;
+	transition: top 0.2s linear;
+}
+
+#title:hover {
+	cursor: pointer;
+	top: 5px;
+	transition: top 0.2s linear;
+	color: #e50914 !important;
+}
+
+/* Hero */
+.hero-container {
+	background-image: url("../img/hero_jim.jpg");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+}
+
+.hero-container .overlay {
+	background: linear-gradient(
+		to bottom,
+		#221f1f 0%,
+		rgba(34, 31, 31, 0) 100%
+	);
+	height: 100%;
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	width: 100%;
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+#hero-heading {
+	padding-top: 25vw;
+	padding-left: 10vw;
+	opacity: 0.5;
+	font-size: 2rem;
+}
+
+/* Etaki-styled button */
+.btn-etaki {
+	border: 2px solid #e50914;
+	background: transparent;
+	text-decoration: none;
+	border-radius: 44px;
+	font-size: 14px;
+	color: #ffffff;
+	transition: border 0.125s ease, background 0.125s ease;
+}
+
+.btn-etaki:hover {
+	background-color: red;
+	color: #ffffff;
+}
+
+.body-container {
+	position: relative;
+	height: inherit;
+}
+
+.ext-link-icon {
+	font-size: 0.8rem;
+	margin-left: 0.4rem;
+}
+
+.feature-title i {
+	margin-right: 0.5rem;
+}

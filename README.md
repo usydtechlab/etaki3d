@@ -32,6 +32,8 @@ It ranges from viewing 360 degree photographs to dissecting 3d models into its c
 4. Click on Admin for MySQL and create a new database, name it whatever you want but remember it!
 5. Go to privileges and add a user account, give it any user name, select localhost and create a password. Ensure SSL is enabled.
 6. Now go into your preferred web browser and type in [localhost/etaki3d](localhost/etaki3d), and an admin panel should open up.
+- Contents of htdocs in the repository should form the landing page, ensure that the rest of the repository is extracted to the appropraite sub-directory,
+in this case (/etaki3d).
 7. Enter in the name of your created database name along with your username and password.
 8. Add yourself as a user, with your own email address, name and password.
 
