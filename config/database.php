@@ -69,7 +69,7 @@ return [
             'host'     => 'localhost',
             'database' => 'etaki3d',
             'username' => 'admin',
-            'password' => 'muhit4321',
+            'password' => 'tech1234',
             'charset'  => 'utf8',
             'prefix'   => 'isvr_',
             'schema'   => 'public',

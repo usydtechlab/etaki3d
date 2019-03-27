@@ -179,14 +179,14 @@
     </div>
     @endif
 
-    <div class="footer clearfix" style="margin:50px 0 10px 0">
+    <!-- <div class="footer clearfix" style="margin:50px 0 10px 0">
         <div class="text-center">
         Made on Earth <i class="fa fa-globe" aria-hidden="true"></i> 
         </div>
         <div class="pull-right" style="margin: 0 20px 0 0;font-size:12px">
         {{ trans('template_app.version') }} {{ config('app.version') }} 
         </div>
-    </div>
+    </div> -->
 
     <script>
     window.ideaspace_site_path = '{{ url('/') }}';

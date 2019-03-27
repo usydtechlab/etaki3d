@@ -198,5 +198,3 @@ Route::get('{space_uri}/content/{contenttype_key}', ['as' => 'content_json', 'us
 Route::get('{space_uri}/content-id/{content_id}', ['as' => 'content_id_json', 'uses' => 'ViewSpaceController@content_id_json']);
 Route::get('{space_uri}', ['as' => 'view_space', 'uses' => 'ViewSpaceController@view_space']);
 Route::get('{space_uri}/{content_uri}', ['as' => 'view_space_content', 'uses' => 'ViewSpaceController@view_space_content']);
-
-

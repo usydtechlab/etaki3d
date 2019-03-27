@@ -1,103 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
 
-    <title>@yield('title')</title>
+		<link rel="stylesheet" href="{{asset('public/css/style.css')}}" />
 
-    <link rel="shortcut icon" type="image/png" href="{{ url('favicon.ico') }}"/>
+		<title>Eta-Ki Landing</title>
+	</head>
+	<body>
+		<header>
+			<nav
+				id="main-nav"
+				class="navbar fixed-top navbar-expand-lg navbar-dark"
+			>
+				<a class="navbar-brand" id="title" href="#">Eta-Ki</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#main-nav-items"
+					aria-controls="main-nav-items"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-    <meta name="abstract" content="" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="copyright" content="" />
-    <meta name="robots" content="follow, index" />
+				<div class="collapse navbar-collapse" id="main-nav-items">
+					<ul class="navbar-nav mr-auto mt-auto mb-auto nav-left">
+						<li class="nav-item">
+							<a class="nav-link" href="#about-section">About </a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Features</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav ml-auto mt-auto mb-auto nav-right">
+						<li class="nav-item nav-link">
+							<button id="login-btn" class="btn btn-etaki">
+								Log In
+							</button>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
 
-    <meta http-equiv="origin-trial" data-feature="{{ $origin_trial_token_data_feature }}" data-expires="{{ $origin_trial_token_data_expires }}" content="{{ $origin_trial_token }}">
+		<div class="container-fluid img-fluid hero-container">
+			<div class="overlay"></div>
+			<p id="hero-heading">Read about it on the Trend Report.</p>
+			<br />
+		</div>
 
-    <meta property="og:site_name" content="" />
-    <meta property="og:image:secure_url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:title" content="@yield('title')" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
+		<div class="container-fluid">
+			<div id="about-section">
+				<div class="row mb-4">
+					<div class="col-md-12">
+						<h1 class="display-4 text-center mb-4">About</h1>
+						<p class="text-center">
+							Eta-ki is a new initiative by the TechLab that aims
+							to manage all WebVR content in one centralised
+							location.
+							<br />It ranges from viewing 360 degree photographs
+							to dissecting 3d models into its components.
+						</p>
+					</div>
+				</div>
+			</div>
 
-    <!-- Fonts -->
-    <link href="{{ asset('public/font-awesome/css/font-awesome.min.css') }}" rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('public/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/layouts/app/css/app.css') }}">
-
-    <?php 
-    if (isset($css)) {
-      foreach ($css as $c) { 
-    ?>
-    <link href="<?php echo $c; ?>" rel="stylesheet">
-    <?php 
-      }
-    } 
-    ?>
-</head>
-<body id="app-layout">
-    @if (!Auth::guest())
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spark-navbar-collapse">
-                    <span class="sr-only">{{ trans('template_frontpage_app.toggle_navigation') }}</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}"><img alt="IdeaSpace" style="width:20px;display:inline" src="{{ asset('public/assets/layouts/app/images/isvr-logo-v2.png') }}"></a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="spark-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li role="presentation"><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-home"></i> {{ trans('template_frontpage_app.dashboard') }}</a></li>
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ ucfirst(Auth::user()->name) }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-														<li role="presentation"><a href="{{ route('edit_user_profile', ['user_id' => Auth::user()->id]) }}"><i class="fa fa-btn fa-edit"></i>{{ trans('template_app.edit_profile') }}</a></li>
-                            <li role="presentation"><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('template_frontpage_app.logout') }}</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    @endif
-        
-    @yield('content')
-
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="{{ asset('public/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('public/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/assets/layouts/app/js/app.js') }}"></script>
-
-    <?php 
-    if (isset($js)) {
-      foreach ($js as $j) { 
-    ?>
-    <script src="<?php echo $j; ?>" type="text/javascript"></script>
-    <?php 
-      }
-    } 
-    ?>
-
-</body>
+			<div class="row mb-4">
+				<div class="col-md-12">
+					<h1 class="display-4 text-center mt-4 mb-2">Features</h1>
+				</div>
+			</div>
+			<div class="container">
+					<div class="row mb-4 ">
+							<div class="col-sm-4 mt-4">
+								<div class="feature-title">
+									<h4><i class="fas fa-database"></i>Content Management System</h4>
+								</div>
+								<div class="feature-body">
+										Stores multimedia content such as 360 Images & Video, 3D models and Audio.
+								</div>
+							</div>
+							<div class="col-sm-4 mt-4">
+								<div class="feature-title">
+									<h4><i class="fas fa-arrows-alt"></i>Interactive Experiences</h4>
+								</div>
+								<div class="feature-body">
+									Displays interactive VR experiences with the content using 'themes'.
+								</div>
+							</div>
+							<div class="col-sm-4 mt-4">
+								<div class="feature-title">
+									<h4><i class="fas fa-cogs"></i>Based on WebVR API</h4>
+								</div>
+								<div class="feature-body">
+										Uses the A-Frame framework to display VR and 3D content. You can also develop with any other WebVR or 360 library.
+								</div>
+							</div>
+						</div>
+						<div class="row mb-4">
+							<div class="col-sm-4 mt-4">
+								<div class="feature-title">
+									<h4><i class="fas fa-universal-access"></i>Accesisble to all.</h4>
+								</div>
+								<div class="feature-body">
+										Lightweight solution for all browsers and mobile devices.
+								</div>
+							</div>
+							<div class="col-sm-4 mt-4">
+								<div class="feature-title">
+									<h4><i class="fas fa-vr-cardboard"></i>VR-ready with VR headsets.</h4>
+								</div>
+								<div class="feature-body">
+										VR headset support, including Oculus Rift & Go, Google Cardboard & Daydream,
+								</div>
+							</div>
+							<div class="col-sm-4 mt-4">
+								<div class="feature-title">
+									<h4><i class="fas fa-edit"></i>Customisable</h4>
+								</div>
+								<div class="feature-body">
+									Develop content using any WebVR or 3D library.
+								</div>
+							</div>
+						</div>	
+			</div>
+			
+		</div>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script src="{{asset('public/js/main.js')}}"></script>
+	</body>
 </html>

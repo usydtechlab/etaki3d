@@ -2,6 +2,7 @@
 
 namespace Illuminate\Routing;
 
+use Auth;
 use Closure;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -17,6 +18,9 @@ use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 use Illuminate\Contracts\Routing\Registrar as RegistrarContract;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use GuzzleHttp\Client;
+use League\Flysystem\Exception;
+use Illuminate\Support\Facades\Hash;
 
 class Router implements RegistrarContract
 {
@@ -370,6 +374,68 @@ class Router implements RegistrarContract
         $this->get('login', 'Auth\AuthController@showLoginForm');
         $this->post('login', 'Auth\AuthController@login');
         $this->get('logout', 'Auth\AuthController@logout');
+        $this->post('techlab_vr', function(){
+            try{
+                if ($_POST['custom_canvas_enrollment_state'] == 'active'){
+                    $connection = pg_connect ("host=localhost dbname=etaki3d user=admin password=tech1234");
+                    if($connection) {
+                        $name =  $_POST['custom_canvas_user_login_id'];
+                        $email = $_POST['lis_person_contact_email_primary'];
+                        $pwd = $_POST['user_id'];
+                        $pwd = Hash::make($pwd);
+                        $remember_token = Str::random(60);
+
+                        $db = $connection;
+                        $sql = "select exists(select 1 from isvr_users where email='".$email."');";
+                        $ret = pg_query($db, $sql);
+                        if(!$ret){
+                            echo pg_last_error($db);
+                            exit;
+                        }
+                        $bool = pg_fetch_row($ret);
+                        if($bool['0'] === "t"){
+                            $sql = "select id from isvr_users where email = '" .$email."';";
+                            $ret = pg_query($db, $sql);
+                            $row = pg_fetch_row($ret);
+            
+                            Auth::loginUsingId($row[0]);
+                            return redirect('/admin');
+                        }
+                        else{
+                            try
+                            {
+                                print_r($_POST);
+                                $sql = "INSERT INTO isvr_users (name,email,password)
+                                        VALUES( 
+                                            '" .$name. "','" .$email. "','" .$pwd. "'  
+                                            );";
+                                $ret = pg_query($db, $sql);
+                                if(!$ret){
+                                    echo pg_last_error($db);
+                                    exit;
+                                }
+                                $sql = "select id from isvr_users where email = '" .$email."';";
+                                $ret = pg_query($db, $sql);
+                                $row = pg_fetch_row($ret);
+                
+                                Auth::loginUsingId($row[0]);
+                                return redirect('/admin');
+                            }
+                            catch (Exception $e){
+                                echo $e;
+                            }
+                            
+                                
+                        }
+                    } else {
+                        echo 'there has been an error connecting';
+                    } 
+                }
+            } 
+            catch (Exception $e){
+                return "Invalid User!";
+            }
+        });
 
         // Registration Routes...
         $this->get('register', 'Auth\AuthController@showRegistrationForm');
