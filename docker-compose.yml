@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3"
 services:
   php:
     build: 
@@ -41,16 +41,6 @@ services:
       MYSQL_USER: "${DB_USERNAME}"
       MYSQL_PASSWORD: "${DB_PASSWORD}"
     container_name: mysql
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
-    environment:
-     - PMA_ARBITRARY=1
-    restart: always
-    ports:
-     - 8080:80
-    volumes:
-      - /sessions
 networks:
   frontend:
   backend:
