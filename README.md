@@ -4,6 +4,8 @@
 
 A for-profit DAMNS for all multimedia and multi-dimensional content.
 
+Quick access to [troubleshooting](## Troubleshooing)
+
 ## About
 Eta-ki is a new initiative by  the TechLab that aims to manage all WebVR content in one centralised location.
 It ranges from viewing 360 degree photographs to dissecting 3d models into its components.
@@ -116,6 +118,16 @@ docker stop [CONTAINER ID]
 docker container prune
 ```
 
+## Troubleshooting
+
+### HTTP 500 error
+
+https://stackoverflow.com/questions/17693391/500-internal-server-error-for-php-file-not-for-html
+
+Working fix in Amazon EC2
+```bash
+sudo chmod -R 777 etaki3d/
+```
 
 
 An Enterprise tier port of the Immersion project.
