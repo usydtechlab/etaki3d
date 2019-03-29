@@ -207,8 +207,8 @@ class InstallationController extends Controller {
             //DB::connection(config('database.default'))->table(DB::raw('DUAL'))->first([DB::raw(1)]);
             DB::connection(config('database.default'))->getPdo();
         } catch (Exception $e) {
-            return redirect('install-db')->withInput()->with('alert-error', $e->getMessage());
-            #return redirect('install-db')->withInput()->with('alert-error', 'Cannot connect to the database. Please verify your database settings and try again.');
+            #return redirect('install-db')->withInput()->with('alert-error', $e->getMessage());
+            return redirect('install-db')->withInput()->with('alert-error', 'Cannot connect to the database. Please verify your database settings and try again.');
         }
 
         /* generate app key and write it to the config file */ 
