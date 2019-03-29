@@ -54,13 +54,14 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost:3306',
+            'host'      => '127.0.0.1',
             'database'  => 'etaki3d',
             'username'  => 'techlab',
             'password'  => 'Tech2019',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => 'isvr_',
+            'unix_socket' => '/var/run/mysqld/mysqld.sock',
             'strict'    => false,
         ],
 
