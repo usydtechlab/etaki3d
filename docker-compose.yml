@@ -46,3 +46,6 @@ networks:
   backend:
 volumes:
     data:
+# useradd -
+  # chown -R user:group /var/www/html
+  # chomod -R 774 /var/www/
