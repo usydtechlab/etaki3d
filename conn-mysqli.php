@@ -3,7 +3,7 @@
 <?php
 $host = 'mysql';
 $user = 'techlab';
-$pass = 'Tech1234';
+$pass = 'Tech2019';
 $conn = new mysqli($host, $user, $pass);
 
 if ($conn->connect_error) {

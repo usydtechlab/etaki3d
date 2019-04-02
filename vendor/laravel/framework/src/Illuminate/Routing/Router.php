@@ -370,10 +370,17 @@ class Router implements RegistrarContract
      */
     public function auth()
     {
+
+        $servername = "172.18.0.1";
+        $username = "techlab";
+        $password = "Tech2019";
+        $dbname = "etaki3d";
+
         // Authentication Routes...
         $this->get('login', 'Auth\AuthController@showLoginForm');
         $this->post('login', 'Auth\AuthController@login');
         $this->get('logout', 'Auth\AuthController@logout');
+        /*
         $this->post('techlab_vr', function(){
             try{
                 if ($_POST['custom_canvas_enrollment_state'] == 'active'){
@@ -426,6 +433,58 @@ class Router implements RegistrarContract
                             }
                             
                                 
+                        }
+                    } else {
+                        echo 'there has been an error connecting';
+                    } 
+                }
+            } 
+            catch (Exception $e){
+                return "Invalid User!";
+            }
+        });
+        */
+
+        // change to use PDO
+        $this->post('techlab_vr', function(){
+            try{
+                if ($_POST['custom_canvas_enrollment_state'] == 'active'){
+                    //$connection = pg_connect ("host=localhost dbname=etaki3d user=admin password=Tech2019");
+                    $pdo = new PDO("mysql:host=$servername;port=3306;dbname=$dbname;", $username, $password);
+                    // set the PDO error mode to exception
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    if($pdo) {
+                        $name =  $_POST['custom_canvas_user_login_id'];
+                        $email = $_POST['lis_person_contact_email_primary'];
+                        $pwd = $_POST['user_id'];
+                        $pwd = Hash::make($pwd);
+                        $remember_token = Str::random(60);
+
+                        $sql = $pdo->prepare("SELECT * FROM isvr_users WHERE email=:email LIMIT 1;");
+                        $sql = execute(['email' => $email]);
+                        $user = $sql->fetch();
+                        if($user){
+                            Auth::loginUsingId($user[0]);
+                            return redirect('/admin');
+                        }
+                        else{
+                            try
+                            {
+                                $sql = "INSERT INTO isvr_users (name,email,password)
+                                        VALUES(?,?,?);";
+                                $ret = $pdo->prepare($sql)->execute([$name, $email, $pwd]);
+
+                                $sql = $pdo->prepare("SELECT * FROM isvr_users WHERE email=:email LIMIT 1;");
+                                $sql = execute(['email' => $email]);
+                                $user = $sql->fetch();
+                
+                                Auth::loginUsingId($user[0]);
+                                return redirect('/admin');
+                            }
+                            catch (Exception $e){
+                                echo $e->getMessage();
+                            }
                         }
                     } else {
                         echo 'there has been an error connecting';

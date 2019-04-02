@@ -3,7 +3,7 @@
 <?php
         $servername = "172.18.0.1";
         $username = "techlab";
-        $password = "Tech1234";
+        $password = "Tech2019";
         $dbname = "etaki3d";
 
         try

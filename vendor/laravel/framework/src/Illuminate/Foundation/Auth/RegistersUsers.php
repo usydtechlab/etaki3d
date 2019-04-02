@@ -44,6 +44,24 @@ trait RegistersUsers
         return $this->register($request);
     }
 
+
+    /**
+     * Handle a registration request for the SSO.
+     *
+     */
+    public function ssoRegister(Request $options)
+    {
+        if ($_POST['custom_canvas_enrollment_state'] == 'active'){
+            $request = [
+                'name'      => $_POST['custom_canvas_user_login_id'],
+                'email'     => $_POST['lis_person_contact_email_primary'],
+                'password'  => Hash::make($_POST['user_id'])
+            ];
+
+        }
+        return $this->register($request);
+    }
+
     /**
      * Handle a registration request for the application.
      *
