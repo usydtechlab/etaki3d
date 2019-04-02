@@ -1,7 +1,7 @@
 <h1>Hello Etaki</h1>
 <h4>Attempting MySQL connection from php....</h4>
 <?php
-        $servername = "172.18.0.1";
+        $servername = "mysql";
         $username = "techlab";
         $password = "Tech2019";
         $dbname = "etaki3d";

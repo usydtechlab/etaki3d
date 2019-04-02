@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => '172.18.0.1',
+            'host'      => 'mysql',
             'database'  => 'etaki3d',
             'username'  => 'techlab',
             'password'  => 'Tech2019',
