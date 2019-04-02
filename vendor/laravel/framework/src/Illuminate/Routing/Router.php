@@ -371,7 +371,7 @@ class Router implements RegistrarContract
     public function auth()
     {
 
-        $servername = "172.18.0.1";
+        $servername = "mysql";
         $username = "techlab";
         $password = "Tech2019";
         $dbname = "etaki3d";
