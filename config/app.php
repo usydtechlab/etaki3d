@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'env' => 'local',
+    'env' => env('APP_ENV', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'debug' => false,
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URI', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'key' => 'base64:8IWqWC6JZ2J+zqI/OOPvgidHqZQoAcILhR5f2BEvavg=',
+    'key' => 'base64:C+Y1vKNzmEwCvWgcmO5lSNGNW+lPLtARxDf0UjlD0gk=',
 
     'cipher' => 'AES-256-CBC',
 
