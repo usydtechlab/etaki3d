@@ -9,14 +9,14 @@ class ComposerStaticInit682ea6de8c0ca2f645eba603f149921d
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -64,6 +64,10 @@ class ComposerStaticInit682ea6de8c0ca2f645eba603f149921d
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+        ),
+        'F' => 
+        array (
+            'Fideloper\\Proxy\\' => 16,
         ),
         'D' => 
         array (
@@ -178,6 +182,10 @@ class ComposerStaticInit682ea6de8c0ca2f645eba603f149921d
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
+        'Fideloper\\Proxy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fideloper/proxy/src',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
@@ -231,7 +239,6 @@ class ComposerStaticInit682ea6de8c0ca2f645eba603f149921d
     public static $classMap = array (
         'CreateAudioTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_25_164538_create_audio_table.php',
         'CreateContentTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_29_160137_create_content_table.php',
-        'CreateFieldDataImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_02_05_170844_create_field_data_images_table.php',
         'CreateFieldsTable' => __DIR__ . '/../..' . '/database/migrations/2016_06_29_160145_create_fields_table.php',
         'CreateFilesTable' => __DIR__ . '/../..' . '/database/migrations/2016_01_27_025654_create_files_table.php',
         'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2016_08_20_022325_create_images_table.php',
@@ -248,7 +255,6 @@ class ComposerStaticInit682ea6de8c0ca2f645eba603f149921d
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
         'SettingsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SettingsTableSeeder.php',
-        'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'ThemesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ThemesTableSeeder.php',
         'getID3' => __DIR__ . '/..' . '/james-heinrich/getid3/getid3/getid3.php',
         'getid3_exception' => __DIR__ . '/..' . '/james-heinrich/getid3/getid3/getid3.php',

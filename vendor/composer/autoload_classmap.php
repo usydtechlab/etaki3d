@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'CreateAudioTable' => $baseDir . '/database/migrations/2016_09_25_164538_create_audio_table.php',
     'CreateContentTable' => $baseDir . '/database/migrations/2016_06_29_160137_create_content_table.php',
-    'CreateFieldDataImagesTable' => $baseDir . '/database/migrations/2016_02_05_170844_create_field_data_images_table.php',
     'CreateFieldsTable' => $baseDir . '/database/migrations/2016_06_29_160145_create_fields_table.php',
     'CreateFilesTable' => $baseDir . '/database/migrations/2016_01_27_025654_create_files_table.php',
     'CreateImagesTable' => $baseDir . '/database/migrations/2016_08_20_022325_create_images_table.php',
@@ -25,7 +24,6 @@ return array(
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'SettingsTableSeeder' => $baseDir . '/database/seeds/SettingsTableSeeder.php',
-    'TestCase' => $baseDir . '/tests/TestCase.php',
     'ThemesTableSeeder' => $baseDir . '/database/seeds/ThemesTableSeeder.php',
     'getID3' => $vendorDir . '/james-heinrich/getid3/getid3/getid3.php',
     'getid3_exception' => $vendorDir . '/james-heinrich/getid3/getid3/getid3.php',
