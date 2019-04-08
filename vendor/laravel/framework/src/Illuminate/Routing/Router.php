@@ -413,7 +413,7 @@ class Router implements RegistrarContract
                         else{
                             try
                             {
-                                print_r($_POST);
+                                //print_r($_POST);   //only enable this when debug
                                 $sql = "INSERT INTO isvr_users (name,email,password,created_at,updated_at)
                                         VALUES( 
                                             '" .$name. "','" .$email. "','" .$pwd. "','now()','now()' 
