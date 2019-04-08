@@ -17,7 +17,7 @@ services:
        APACHE_VERSION: ${APACHE_VERSION}
     depends_on:
       - php
-      - mysql
+      - db
     networks:
       - frontend
       - backend
@@ -26,21 +26,36 @@ services:
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html/
     container_name: apache
-  mysql:
-    image: mysql:${MYSQL_VERSION:-latest}
+  db:
+    image: postgres:${POSTGRES_VERSION:-latest}
     restart: always
+    environment:
+      TZ: "${APP_TIMEZONE}"
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USERNAME}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
     ports:
-      - "3306:3306"
-    volumes:
-            - data:/var/lib/mysql
+      - '5432:5432' # Opens port 5432 on the container
+    expose:
+      - '5432'
     networks:
       - backend
+    volumes:
+      - data:/var/lib/postgresql/data
+    container_name: postgresql
+  phppgadmin:
+    image: dockage/phppgadmin:latest
+    restart: always
+    ports:
+        - "${PHP_PG_ADMIN_PORT:-8080}:80"
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "${DB_NAME}"
-      MYSQL_USER: "${DB_USERNAME}"
-      MYSQL_PASSWORD: "${DB_PASSWORD}"
-    container_name: mysql
+        PHP_PG_ADMIN_SERVER_HOST: "db"
+        PHP_PG_ADMIN_SERVER_PORT: "${DB_PORT}"
+        PHP_PG_ADMIN_SERVER_DEFAULT_DB: "${DB_NAME}"
+    networks:
+      - backend
+    container_name: phppgadmin   
+
 networks:
   frontend:
   backend:

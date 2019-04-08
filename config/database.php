@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'default' => 'mysql',
+    'default' => 'pgsql',
 
     /*
     |--------------------------------------------------------------------------
@@ -66,10 +66,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => 'localhost',
+            'host'     => 'db',
             'database' => 'etaki3d',
-            'username' => 'admin',
-            'password' => 'tech1234',
+            'username' => 'techlab',
+            'password' => 'Tech2019',
             'charset'  => 'utf8',
             'prefix'   => 'isvr_',
             'schema'   => 'public',

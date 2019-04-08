@@ -5,4 +5,14 @@ FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
 RUN apk update; \
     apk upgrade;
 
-RUN docker-php-ext-install mysqli pdo_mysql
+# https://github.com/docker-library/php/issues/221
+RUN set -ex \
+  && apk --no-cache add \
+    postgresql-dev
+
+
+# Install postgres pdo
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
+
+
+#RUN docker-php-ext-install mysqli pdo_mysql
