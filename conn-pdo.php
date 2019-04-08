@@ -1,7 +1,7 @@
 <h1>Hello Etaki</h1>
-<h4>Attempting MySQL connection from php....</h4>
+<h4>Attempting Postgresql connection from php....</h4>
 <?php
-        $servername = "mysql";
+        $servername = "db";
         $username = "techlab";
         $password = "Tech2019";
         $dbname = "etaki3d";
@@ -9,11 +9,11 @@
         try
         {
                 // preparing database handle $dbh
-                $conn = new PDO("mysql:host=$servername;port=3306;dbname=$dbname;", $username, $password);
+                $conn = new PDO("pgsql:host=$servername;port=5432;dbname=$dbname;", $username, $password);
                 // set the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                echo ("Connected to MySQL successfully!");
+                echo ("Connected to Postgresql successfully!");
         }
 
         catch(PDOException $e)

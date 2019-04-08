@@ -129,6 +129,44 @@ Working fix in Amazon EC2
 sudo chmod -R 777 etaki3d/
 ```
 
+## Sample output of `docker-compose up --build`
+
+```bash
+docker-compose up --build
+
+Creating network "etaki3d_frontend" with the default driver
+Creating network "etaki3d_backend" with the default driver
+Creating volume "etaki3d_data" with default driver
+Building php
+...
+Build complete.
+
+Don't forget to run 'make test'.
+
+Installing shared extensions:     /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
+Installing header files:          /usr/local/include/php/
+Installing PDO headers:           /usr/local/include/php/ext/pdo/
+...
+
+Pulling db (postgres:10.7)...
+...
+Status: Downloaded newer image for postgres:10.7
+...
+
+Building apache
+...
+/usr/local/apache2/conf
+...
+
+Pulling phppgadmin (dockage/phppgadmin:latest)...
+...
+
+Creating postgresql ... done
+Creating php        ... done
+Creating phppgadmin ... done
+Creating apache     ... done
+Attaching to php, postgresql, phppgadmin, apache
+```
 
 An Enterprise tier port of the Immersion project.
 
