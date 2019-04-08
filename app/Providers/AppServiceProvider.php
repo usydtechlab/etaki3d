@@ -17,7 +17,9 @@ class AppServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-
+        if(config('app.env') === 'production') {
+            \URL::forceSchema('https');
+        }
         $origin_trial_token = '';
         $origin_trial_token_data_feature = '';
         $origin_trial_token_data_expires = '';
