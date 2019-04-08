@@ -98,38 +98,62 @@ Let's create our first scene that will display some moving, 3d text.
 - We have provided you with a few to start off with, and we will continue to create themes so make sure to keep this github repo up to date!
 -  
 
+### Develop and deploy using Docker
 
-### Docker
+In this project, We have defined four docker containers and we use `docker-compose` to run multi-container Docker applications:
+
+- php
+- apache
+- postgres
+- phppgadmin
+
+> A `.env` file has been created to maintain the global configuration. Please modify it accordingly when running the system in `local` or `production`.
+> The individule Dockerfile for `php` and `apache` are in `/container` folder.
+> Please be noted that the database HOST should use `db` (according to the service name of the DB in docker-compose config file) instead of `localhost`.
+
+### Up and run
+
+Inside `etaki3d/`, execute:
 
 ```bash
-docker-compose -f docker-compose.yml up
+docker-compose up --build
 ```
 
-#### List containers
+### Stop
+
+Inside `etaki3d/`, execute:
 
 ```bash
-docker container ls
+docker-compose down
 ```
 
-#### Stop and prune containers
+### Prune created docker resources
+
+Below execution would prune the created docker containers, images, networks
 
 ```bash
-docker stop [CONTAINER ID]
-docker container prune
+docker system prune
+docker system prune -a
 ```
 
-## Troubleshooting
+If you are sure you want prune the docker volume (CAUTION: it contains the DB data), do this:
 
-### HTTP 500 error
-
-https://stackoverflow.com/questions/17693391/500-internal-server-error-for-php-file-not-for-html
-
-Working fix in Amazon EC2
 ```bash
-sudo chmod -R 777 etaki3d/
+docker volume ls
+docker volume remove <volume ID>
 ```
 
-## Sample output of `docker-compose up --build`
+### List containers
+
+1.Running containers
+Use `docker container ls` or `docker ps`
+
+2.Not running containers
+
+Use `docker container ls -a` or `docker ps -a`
+
+
+### Sample output of `docker-compose up --build`
 
 ```bash
 docker-compose up --build
@@ -168,9 +192,20 @@ Creating apache     ... done
 Attaching to php, postgresql, phppgadmin, apache
 ```
 
+## Troubleshooting
+
+### HTTP 500 error
+
+https://stackoverflow.com/questions/17693391/500-internal-server-error-for-php-file-not-for-html
+
+Working fix in Amazon EC2
+```bash
+sudo chmod -R 777 etaki3d/
+```
+
 An Enterprise tier port of the Immersion project.
 
-Eta-ki is under the [MIT License ](LICENSE)
+Eta-ki is under the [MIT License](LICENSE)
 <p align="center">
 	Made with :blue_heart: at the TechLab.
 </p>
