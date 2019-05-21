@@ -4,7 +4,7 @@
 
 A for-profit DAMNS for all multimedia and multi-dimensional content.
 
-Quick access to [troubleshooting](## Troubleshooing)
+Quick access to [troubleshooting](#Troubleshooting)
 
 ## About
 Eta-ki is a new initiative by  the TechLab that aims to manage all WebVR content in one centralised location.
